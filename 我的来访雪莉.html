@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>我的来访雪莉 - A Collection of Novels by Yuhan Gu</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="知止.html"><strong aria-hidden="true">1.</strong> 知止</a></li><li class="chapter-item expanded "><a href="我的来访雪莉.html" class="active"><strong aria-hidden="true">2.</strong> 我的来访雪莉</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">A Collection of Novels by Yuhan Gu</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>今天要见雪莉。我记着两周前她的交代，特意换上一身休闲装，又对着镜子把头发弄得有些乱糟糟。<br />我们正面对面坐在咨询所大厅的两张单人沙发上，这里的几张沙发本是用来招待新客人用的。<br />“法布里先生，我想我爱上您了。”咨询一开始，雪莉就平静地看着我的眼睛说。我随即感觉我们身上多了几道目光，但又不能四周张望。<br />我有些惊讶，但没有表现出来。我回想起她第一次见我时所说的话，大概猜到了她如此平静的原因。“你希望咱们去咨询室里继续聊吗？”<br />“屋子里将只有咱们两个人，况且我已经爱上您了。”雪莉说这些时仍面无颜色，这让我有些害怕。<br />来访者爱上咨询师，我有个同事经历过，她说要把来访者爱上自己这件事本身当他们体验的一部分。我暗自地不知所措起来，我可能还没有我的来访者理性。<br />“既然这样，咱们接着一起探索你的内心。你有什么想对我说的？”我明白，同事的意思就是装没发生，于是我引着雪莉继续聊下去。<br />“那我接着上次的讲……”雪莉从包里拿出一个小本，翻翻翻，翻到一页折角。<br />我认识这种本子，是市医院的病历本，也许她在找到我之前去过那里。其实雪莉掏出本子之前，我就猜到今天要有它。那上面记的是她的绵绵情史。<br />“总的算下来我中学时大概喜欢过四十多个男生，上次跟您讲了喜欢时间最长的杰克……”话至此处，几个来这里考察的新顾客拧过头来，他们的目光差点跟我对上，我明明盯着雪莉的眼睛。<br />“刚上中学时，我开始有心仪的人，那种感觉太奇妙了，我把那一点点心事逢人就说，结果全学校都知道雪莉喜欢了一个又一个。上大学后，终于有人敢跟我恋爱了。我找了第一个男友，他叫麦克，我本以为自己一旦确定一段恋爱关系，就不会再朝三暮四，可是……”雪莉说着看了看手中的小本。那上面也许只列了个提纲，因为绝大多时间，她一直真诚地看着我的眼睛。仿佛一个看了无数大夫的病人，她说起症状来已经熟稔于胸，可怜的是病却没治好。<br />“我跟他相处的很好，但没想到我又喜欢上另一个。正当我打算向麦克坦白时，我又喜欢上一个新的……”拧着头看我的几个人皱起了眉头。<br />接着，雪莉把她的故事又讲了些。有几段关系因为人物关系过于复杂，颇具戏剧性。另有几段，雪莉被恋人、情人、情敌伤害得令人心疼。<br />所以大概是这样，我的这位来访者会频繁地切换她精神上的恋爱对象，即使在一段恋爱关系里也这样。这就好办了。我从脑中调出弗洛伊德的理论来，给她分析了个八九不离十。又提了点建议，让她尝试跟更多的异性相处，尝试着去长久地爱一个人。<br />雪莉真诚地点着头，她很相信我，她这段时间一定会很相信我。</p>
+<p>雪莉是我最不一样的来访者。<br />当天晚上，我躺在床上，想起了她白天讲的故事。<br />突然间我惊坐起来。什么叫做最不一样的来访者！事实上哪有两个一样的来访者？他们在别人眼里可能差不多，可在我们眼里，哪里有！<br />大事不妙！随后两周中，雪莉修长的手指，她哗哗作响的病历本，可怜的大眼睛。这一切都时常在我脑海里跃动。渐渐地，她比我所有其他来访者加起来还要占我的神经，我越来越盼着马上见到她，无论如何地盼着。<br />或许雪莉也时时刻刻跟我一样，被没边的时间折磨着。</p>
+<p>这一天终于来了，我又换上了那身休闲装，再次对着镜子把我的头发弄得有些乱糟糟。随后我看着镜子里的自己，左右转转，离不开身。<br />“雪莉你好，今天确定在我的咨询室聊？”我小心地问着，我们之间越来越特殊。<br />“法布里先生，我还是爱您。我知道这样不好，等这段时间过去，也许我就会喜欢上另一个人。”雪莉的样子看上去要放弃了。<br />我可怜的来访者，她已经爱了一个人六周，她本该开心地向我汇报着。但是，可怜的雪莉，她却爱上一个不该爱的人，她又怎能一次次把这事挂在嘴边，去闯着禁忌的大门？<br />“最近一周怎么样？你有什么想对我说的？”我怕问得暧昧，又怕自己的克制伤害到她。我丧失了处理语气的能力，我又怕没有语气也变成语气。<br />“那我接着上次的讲。”又是那翻飞的小本。如果说有什么不同，我的确嗅到了她身上的芳香。<br />这次她讲述了进入职场之后的故事，同样波折而辛酸。她眼睛最动人的时刻，以及小本里的秘密，除了我还有谁能体会得到？可我是一个咨询师，她是我的来访者……<br />但至少我能为她解脱痛苦。他是我的来访者，我太知道该怎么办了！<br />我想起了她中学时的杰克、大学时的安德、还有工作后的一个男人（叫什么来着，她刚说，我没记住）。雪莉绝大多数换人都是因为遇见了新的，唯有他们三个不是。杰克得知她的心意马上对她大献殷勤，雪莉立即对他没了好感；安德上赶着讨好她，几天后雪莉不厌其烦地提了分手。还有那个老男人，围着她鞍前马后地照顾，吓得雪莉与他永不联系。<br />所以，居然有一种方式，能被雪莉从主观上拒绝。所以，我或许可以成为那第四个？<br />“我觉得你做得不错，你没有移情，已经很久了。”我学着可怜的杰克、安德还有那个无名氏，称赞着她。<br />雪莉一愣，有些脸红，“您说的是真的吗？”可能是因为没有咨询师夸过她，她有些不信。<br />“雪莉，真的。”我看着她漂亮的眼睛，细细地称赞她冷静、理性，又称赞她自知、坦率。我发现自己甚至不用思考，这些溢美之词出来之前就含满了情。封闭的咨询室使我的心跳得厉害。<br />雪莉眼神中露出些许不屑，眉头微蹙，愣住在我面前，我的方法奏效了。<br />很抱歉雪莉，我真的不能是你的药，我只能做你的医生。</p>
+<p>接下来两周，我被一种深深的自责淹没着。老板看了我们的咨询记录，他的批评在我耳边嗡嗡的，像极了杀人蜂：“只有一种情况你可以夸一个来访者，那就是当他糟透了……否则他们来了还想来，越来越严重……”我又何尝不知道，我犯了行业中的大忌。<br />雪莉最不喜欢别人夸她，我可以把这当作借口吗？可她远远不到这份上，我怎能胡夸？他们让我装不知道，可我怎样才装得合格？我想止损，可为何却不得不逼她变心？她移情的毛病正在渐好，我又哪舍得这样做？<br />我变成了一个知罪却犯罪的恶人。他每天在做什么事？给人咨询。<br />我无法每天正常地与来访者交谈，只好辞退掉一些。后来他们带上了亲友来到咨询所大厅，高喊着退钱。其中一个总坐在雪莉坐过的沙发上。<br />“老板，我求求您不要现在炒了我，就再等一周，我不要咨询室，不要工资，不挂您的名字……”<br />我怕雪莉找不到。</p>
+<p>今天要见雪莉。我一身休闲装，头发有些乱糟糟。我猜这也许是我的形象。<br />“雪莉，我跟你道歉，咱们今天得在大厅……”<br />“法布里先生，我依旧很爱您。”雪莉眼中交织着悲和喜。<br />我也一样。除了我，她从没有喜欢一个人那么久。可我有什么让她倾心，我甚至做出了她不屑的模样。可是，她的问题解决了，她的病几乎彻底好了，这也是因为我。可我是她的咨询师……<br />“听说了您的事。”<br />“可以告诉我哪些吗？”<br />“您相信爱情吗？”<br />“你理解什么是爱情？”<br />她没有回答，却从包里掏出病例本递给我。<br />翻翻翻，我的手冰冷、颤抖起来。我看到那些熟悉的名字，她写得比我想的要细很多。最后一页会有什么，我变得迫不及待起来，我好怕看到我的名字，可我为什么会怕？<br />“法布里先生：他冷漠也好，殷勤也罢，我爱他，无论他什么样子。”我默默地读着那本子上最后一句话。抬眼她已经不见了。<br />2022.4.16</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="知止.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="知止.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
